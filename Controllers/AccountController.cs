@@ -3,6 +3,7 @@ using System.Buffers.Text;
 using System.Collections.Generic;
 using System.IO;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace CoreWebAPI.Controllers
 {
@@ -39,8 +40,20 @@ namespace CoreWebAPI.Controllers
 
         // POST api/account
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] User user)
         {
+            //https://andrewlock.net/model-binding-json-posts-in-asp-net-core/
+            // var json = new User { Email = "john.doe@gmail.com",
+            //         FirstName = "john",
+            //         LastName = "doe",
+            //         Password = "encrypted",
+            //     };
+            // var fasdfasd = JsonConvert.SerializeObject(json);
+            using (var db = new DatabaseContext())
+            {
+                db.Users.Add(user);
+                var count = db.SaveChanges();
+            }
         }
 
         // PUT api/account/5
