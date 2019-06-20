@@ -23,7 +23,6 @@ namespace CoreWebAPI.Controllers
             } 
             if (type.Equals("hostedimagefile"))  
             {  
-
                 b = System.IO.File.ReadAllBytes(@"C:\Users\ssoong\Downloads\logo.jpg");  
             }  
             //https://localhost:5001/api/account?type=decodedFile
