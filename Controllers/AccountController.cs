@@ -16,6 +16,7 @@ namespace CoreWebAPI.Controllers
         [HttpGet]
         public IActionResult Get(string type)  
         {
+            //https://blog.mwaysolutions.com/2014/06/05/10-best-practices-for-better-restful-api/
 
             Byte[] b;  
             if(type == null)  
